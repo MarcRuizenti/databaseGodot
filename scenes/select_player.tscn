@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvqn17vsyjjwv"]
+
+[ext_resource type="Script" path="res://scenes/select_player.gd" id="1_r8e3o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xd4e"]
+font_color = Color(1, 0, 0, 1)
+
+[node name="SelectPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r8e3o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectPlayer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="List" type="VBoxContainer" parent="HBoxContainer/SelectPlayer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="SelectPlayerTitle" type="Label" parent="HBoxContainer/SelectPlayer/List"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Select Player"
+
+[node name="ScrollPlayerList" type="ScrollContainer" parent="HBoxContainer/SelectPlayer/List"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerList" type="VBoxContainer" parent="HBoxContainer/SelectPlayer/List/ScrollPlayerList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NewPlayer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Form" type="VBoxContainer" parent="HBoxContainer/NewPlayer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NewPlayerTitle" type="Label" parent="HBoxContainer/NewPlayer/Form"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "New Player
+"
+horizontal_alignment = 2
+
+[node name="InputNewPlayer" type="LineEdit" parent="HBoxContainer/NewPlayer/Form"]
+layout_mode = 2
+
+[node name="Res" type="Label" parent="HBoxContainer/NewPlayer/Form"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+text = "New Player
+"
+label_settings = SubResource("LabelSettings_4xd4e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonAddPlayer" type="Button" parent="HBoxContainer/NewPlayer/Form"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Start"
+
+[connection signal="pressed" from="HBoxContainer/NewPlayer/Form/ButtonAddPlayer" to="." method="_on_button_add_player_pressed"]

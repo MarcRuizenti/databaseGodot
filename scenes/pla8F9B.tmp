@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyhunfqq5ow3s"]
+
+[ext_resource type="Script" path="res://scenes/player_button.gd" id="1_n7767"]
+
+[sub_resource type="GDScript" id="GDScript_grl7o"]
+script/source = "extends Button
+"
+
+[node name="PlayerButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7767")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 64)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = SubResource("GDScript_grl7o")

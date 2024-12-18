@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5uifxcq278p6"]
+
+[ext_resource type="Script" path="res://scenes/base.gd" id="1_2e8rk"]
+[ext_resource type="PackedScene" uid="uid://crehhesg6dlf4" path="res://scenes/torreta_1.tscn" id="2_b1wpc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqqx3"]
+resource_local_to_scene = true
+albedo_color = Color(0.901961, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0er31"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_pqqx3")
+size = Vector3(4, 0.25, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54c4e"]
+size = Vector3(4.8, 6.39609, 4.8)
+
+[sub_resource type="Animation" id="Animation_85nwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.901961, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vgwiw"]
+resource_name = "Selected"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.901961, 0, 0, 1), Color(1.15514e-06, 0.537432, 0.634333, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yujm5"]
+_data = {
+"RESET": SubResource("Animation_85nwb"),
+"Selected": SubResource("Animation_vgwiw")
+}
+
+[node name="Base" type="Node3D"]
+script = ExtResource("1_2e8rk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0er31")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0574646, 3.01562, 0.135864)
+shape = SubResource("BoxShape3D_54c4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yujm5")
+}
+
+[node name="Torreta" parent="." instance=ExtResource("2_b1wpc")]
+visible = false
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
