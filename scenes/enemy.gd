@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var movement_speed: float = 4.0
 
 @export var target:Node3D
-
+@export var health:float = 100.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready() -> void:

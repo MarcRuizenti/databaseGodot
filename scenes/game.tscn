@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo325ymjgqkg8"]
+[gd_scene load_steps=8 format=3 uid="uid://bo325ymjgqkg8"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ggsjk"]
 [ext_resource type="PackedScene" uid="uid://d4cg2okkgkgvl" path="res://scenes/level.tscn" id="1_l8ips"]
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="2_6un32"]
+[ext_resource type="Script" path="res://scenes/game_ober.gd" id="4_aqhi6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8j8xg"]
 sky_top_color = Color(0.272073, 0.414219, 0.827636, 1)
@@ -45,15 +46,15 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 2
 
-[node name="EnemyCounter" type="Label" parent="GameUI"]
+[node name="Enemy" type="Label" parent="GameUI"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 24.0
-offset_right = 263.0
-offset_bottom = 56.0
+offset_right = 204.0
+offset_bottom = 69.0
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
-text = "Enemigos: 0"
+text = "Enemigos:"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.486503, -0.6569, -0.576018, -0.71646, -0.077347, 0.693328, -0.5, 0.75, -0.433013, -75.2867, 30.8064, 0)
@@ -67,3 +68,74 @@ environment = SubResource("Environment_pgja4")
 transform = Transform3D(-0.999365, 0.0334833, -0.0121869, 0, 0.34202, 0.939693, 0.0356322, 0.939096, -0.341803, 32.1185, 37.978, -251.015)
 
 [node name="Level" parent="." instance=ExtResource("1_l8ips")]
+
+[node name="GameOber" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_aqhi6")
+
+[node name="BackGound" type="ColorRect" parent="GameOber"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.670588, 0, 0.0431373, 0.396078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOber"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.285
+anchor_top = 0.208
+anchor_right = 0.7
+anchor_bottom = 0.367
+offset_left = -0.320038
+offset_top = 0.216003
+offset_right = -0.400024
+offset_bottom = 0.18399
+grow_horizontal = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wave][center][rainbow]Has Perdido[/rainbow][/center][/wave]"
+
+[node name="Restart" type="Button" parent="GameOber"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.421
+anchor_right = 0.564
+anchor_bottom = 0.52
+offset_left = -0.424011
+offset_top = 0.191986
+offset_right = 0.271973
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="GameOber"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.569
+anchor_right = 0.564
+anchor_bottom = 0.668
+offset_left = -0.424011
+offset_top = 0.287994
+offset_right = 0.271973
+offset_bottom = 0.135986
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu
+"
+
+[connection signal="game_over" from="Level" to="GameOber" method="_on_level_game_over"]
+[connection signal="pressed" from="GameOber/Restart" to="GameOber" method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOber/MainMenu" to="GameOber" method="_on_main_menu_pressed"]

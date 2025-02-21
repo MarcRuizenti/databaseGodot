@@ -27,3 +27,14 @@ func insert_player(player_name) -> int:
 	db.query(query)
 	
 	return db.last_insert_rowid
+	
+	
+func insert_score(id_player:int, score:int ):
+	var query:String = "INSERT INTO scores (score, datetime, id_player) VALUES (%d, datetime(), %d)" % [score, id_player]
+	
+	db.query(query)
+	
+	return db.last_insert_rowid
+	
+	
+	
