@@ -4,6 +4,9 @@ extends Control
 func _on_restart_pressed() -> void:
 	Globals.player_score = Globals.base_score
 	get_tree().reload_current_scene()
+	
+	
+	
 
 
 func _on_level_game_over() -> void:
