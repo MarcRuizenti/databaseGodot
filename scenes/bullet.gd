@@ -1,11 +1,13 @@
 extends Node3D
 
 
-var SPEED:float = 50.0
+var SPEED:float = 100.0
 
 var damage:float = 50.0
 
+
 func _process(delta: float) -> void:
+	
 	translate(Vector3.FORWARD*SPEED*delta)
 
 

@@ -3,8 +3,10 @@ extends Node3D
 var toggle:bool = false
 var turret_price:float =  10
 
-func look_at_traget(target:Vector3):
-	$Torreta.look_at(target)
+func look_at_traget(target:Node3D):
+	var traget_pos:Vector3 = target.global_position
+	
+	$Torreta.look_at_enemy(traget_pos)
 	$Torreta.rotation.x = 0
 
 
@@ -17,10 +19,6 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 			Globals.player_score -= turret_price
 			$Torreta.visible = true
 			$Torreta.enabled = true
-		#else:
-			#$AnimationPlayer.play_backwards("Selected");
-			#$Torreta.visible = false
-			#$Torreta.enabled = false
 			
 		toggle = !toggle
 		

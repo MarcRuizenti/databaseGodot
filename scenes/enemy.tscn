@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c35dfod1m0xs7"]
 
-[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_mwmni"]
+[ext_resource type="Script" uid="uid://cnqjakhwj5hbt" path="res://scenes/enemy.gd" id="1_mwmni"]
 [ext_resource type="PackedScene" uid="uid://bthuh1gffx52a" path="res://assets/models/enemigo.glb" id="2_npdo6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ummr"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bo325ymjgqkg8"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_ggsjk"]
+[ext_resource type="Script" uid="uid://b5tahdry384tc" path="res://scenes/game.gd" id="1_ggsjk"]
 [ext_resource type="PackedScene" uid="uid://d4cg2okkgkgvl" path="res://scenes/level.tscn" id="1_l8ips"]
-[ext_resource type="Script" path="res://scenes/game_ui.gd" id="2_6un32"]
-[ext_resource type="Script" path="res://scenes/game_ober.gd" id="4_aqhi6"]
+[ext_resource type="Script" uid="uid://cidjrfanm4akj" path="res://scenes/game_ui.gd" id="2_6un32"]
+[ext_resource type="Script" uid="uid://cvxlnukqwjlea" path="res://scenes/game_ober.gd" id="4_aqhi6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8j8xg"]
 sky_top_color = Color(0.272073, 0.414219, 0.827636, 1)

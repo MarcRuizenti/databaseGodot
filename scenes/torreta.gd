@@ -6,6 +6,7 @@ var is_shooting:bool = false
 
 var enabled:bool = false
 
+
 func look_at_enemy(enemy_pos:Vector3):
 	look_at(enemy_pos)
 
@@ -14,7 +15,6 @@ func shoot():
 	var b = bullet_preload.instantiate()
 	get_parent().add_child(b)
 	b.global_rotation = global_rotation
-
 
 func start_shooting():
 	if is_shooting:

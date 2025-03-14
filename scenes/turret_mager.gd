@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 			var dist = turret.global_position.distance_to(enemy.global_position)
 			if dist <= DIST_MAX and turret.get_node("Torreta").enabled:
-				turret.look_at_traget(enemy.global_position)
+				turret.look_at_traget(enemy)
 
 				turret.get_node("Torreta").start_shooting()
 				shooting = true
