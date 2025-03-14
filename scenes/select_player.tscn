@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvqn17vsyjjwv"]
 
-[ext_resource type="Script" uid="uid://c4m43j00sjjq2" path="res://scenes/select_player.gd" id="1_r8e3o"]
+[ext_resource type="Script" path="res://scenes/select_player.gd" id="1_r8e3o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4xd4e"]
 font_color = Color(1, 0, 0, 1)
@@ -80,4 +80,20 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "Start"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -289.0
+offset_top = -93.0
+offset_right = -125.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "EXIT"
+
 [connection signal="pressed" from="HBoxContainer/NewPlayer/Form/ButtonAddPlayer" to="." method="_on_button_add_player_pressed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

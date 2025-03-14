@@ -10,4 +10,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_leader_boards_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/select_player.tscn")
+	get_tree().change_scene_to_file("res://scenes/dash_board.tscn")

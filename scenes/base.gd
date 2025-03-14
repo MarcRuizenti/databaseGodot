@@ -1,7 +1,7 @@
 extends Node3D
 
 var toggle:bool = false
-var turret_price:float =  10
+var turret_price:float =  5
 
 func look_at_traget(target:Node3D):
 	var traget_pos:Vector3 = target.global_position

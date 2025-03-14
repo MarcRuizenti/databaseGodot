@@ -35,6 +35,18 @@ func insert_score(id_player:int, score:int ):
 	db.query(query)
 	
 	return db.last_insert_rowid
+
+func get_scores():
 	
+	db.query("SELECT * FROM scores ORDER BY score DESC LIMIT 10;")
+	return db.query_result
+
+
+func get_player(id_player:int):
+	db.query("SELECT * FROM players;")
 	
+	for player in db.query_result:
+		if (player.id_player == id_player):
+			return player
 	
+	return null

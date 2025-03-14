@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crehhesg6dlf4"]
 
-[ext_resource type="Script" uid="uid://dkjue0u5j62vu" path="res://scenes/torreta.gd" id="1_qhmuq"]
+[ext_resource type="Script" path="res://scenes/torreta.gd" id="1_qhmuq"]
 [ext_resource type="PackedScene" uid="uid://bprcv66dvl2m6" path="res://assets/models/Torreta.glb" id="2_usnl2"]
 
 [node name="Torreta1" type="Node3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6a48qgrg0mb8"]
 
-[ext_resource type="Script" uid="uid://bk6y4nlk2btj1" path="res://scenes/mian_menu.gd" id="1_alvfw"]
+[ext_resource type="Script" path="res://scenes/mian_menu.gd" id="1_alvfw"]
 
 [node name="mian_menu" type="Control"]
 layout_mode = 3
